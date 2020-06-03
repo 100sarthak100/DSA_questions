@@ -1,0 +1,30 @@
+class Solution {
+public:
+    int twoCitySchedCost(vector<vector<int>>& costs) {
+        set<pair<int, int>> diff;
+        int index = 0;
+        for(auto i : costs)
+        {
+            int d = i[0] - i[1];
+            diff.insert(make_pair(d, index));
+            index++;
+        }
+        int n = costs.size();
+        int count = 1;
+        int sum = 0;
+        for(auto i : diff)
+        {
+            if(count <= n/2)
+            {
+                sum += costs[i.second][0];
+                count++;
+            }
+            else
+            {
+                sum += costs[i.second][1];
+                count++;
+            } 
+        }
+        return sum;
+    }
+};
