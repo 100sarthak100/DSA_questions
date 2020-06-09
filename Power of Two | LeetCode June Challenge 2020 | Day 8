@@ -1,0 +1,23 @@
+class Solution {
+public:
+    // counting number of set bits
+    unsigned int countSet(int n)
+    {
+        unsigned int count = 0;
+        while(n)
+        {
+            if(n < 0)
+                break;
+            n &= (n - 1);
+            count++;       
+        }
+        return count;
+    }
+    // if set bit is 1 return true, else return false
+    bool isPowerOfTwo(int n) {
+        unsigned int a = countSet(n);
+        if(a == 1)
+            return true;
+        else return false;
+    }
+};
